@@ -1,23 +1,35 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/nextjs";
 import React from "react";
 import "../src/styles/globals.css";
-import { Inter as FontSans } from "next/font/google";
-
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+import theme from './theme';
 
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <main className={fontSans.className}>
+      <div className="bg-background text-foreground selection:bg-brand/30 antialiased p-8 min-h-screen">
         <Story />
-      </main>
+      </div>
     ),
   ],
+
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    docs: {
+      theme,
+    },
+    layout: "centered",
+    backgrounds: {
+      default: 'linear-dark',
+      values: [
+        {
+          name: "linear-dark",
+          value: "#08090a",
+        },
+        {
+          name: "white",
+          value: "#ffffff",
+        }
+      ]
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

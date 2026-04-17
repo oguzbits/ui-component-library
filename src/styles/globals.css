@@ -1,76 +1,88 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
- 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+@import "tailwindcss";
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
- 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
- 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
- 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
- 
-    --radius: 0.5rem;
-  }
- 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
- 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
- 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
- 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
- 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-  }
+@theme {
+  --color-background: #08090a;
+  --color-foreground: #f7f8f8;
+  
+  /* Surfaces - Luminance Stacking */
+  --color-surface-1: rgba(255, 255, 255, 0.02);
+  --color-surface-2: rgba(255, 255, 255, 0.04);
+  --color-surface-3: rgba(255, 255, 255, 0.05);
+  
+  /* Panels */
+  --color-panel: #0f1011;
+  --color-panel-elevated: #191a1b;
+  
+  /* Text specific */
+  --color-text-secondary: #d0d6e0;
+  --color-text-tertiary: #8a8f98;
+  --color-text-muted: #62666d;
+  
+  /* Brand */
+  --color-brand: #5e6ad2;
+  --color-brand-accent: #7170ff;
+  --color-brand-hover: #828fff;
+  
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.08); /* Border Standard */
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
+  
+  /* Radii */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px; /* Comfortable */
+  --radius-lg: 8px; /* Card */
+  --radius-xl: 12px; /* Panel */
+  --radius-2xl: 22px;
+  
+  /* Typography weights */
+  --font-weight-ui: 510;
+  --font-weight-emphasis: 590;
+  
+  /* Display Tracking */
+  --letter-spacing-display: -0.022em; /* ~-1.056px for 48px */
+  --letter-spacing-display-lg: -0.033em; /* ~-1.584px for 72px */
+  
+  --font-sans: "Inter", var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Berkeley Mono", ui-monospace, SF Mono, Menlo, monospace;
 }
- 
+
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border/50;
   }
+  
+  html {
+    color-scheme: dark;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv01", "ss03";
+    letter-spacing: -0.011em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-ui tracking-tight text-foreground;
+  }
+  
+  /* Typography Scale from DESIGN.md */
+  .text-display-lg { font-size: 4.5rem; font-weight: 510; line-height: 1; letter-spacing: var(--letter-spacing-display-lg); }
+  .text-display { font-size: 3rem; font-weight: 510; line-height: 1; letter-spacing: var(--letter-spacing-display); }
+  .text-heading-1 { font-size: 2rem; font-weight: 400; line-height: 1.13; letter-spacing: -0.022em; }
+  .text-body-primary { font-size: 1rem; font-weight: 400; line-height: 1.5; }
+  .text-body-ui { font-size: 1rem; font-weight: 510; line-height: 1.5; }
+  .text-label { font-size: 0.75rem; font-weight: 510; line-height: 1.4; }
+  .text-caption { font-size: 0.81rem; font-weight: 400; line-height: 1.5; color: var(--color-text-tertiary); }
+}
+
+@layer utilities {
+  .linear-border {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Linear's special inset shadow for recessed panels */
+  .linear-inset {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 12px 0px inset;
   }
 }

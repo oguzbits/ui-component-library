@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { Button } from "./button";
 
@@ -13,7 +13,7 @@ const meta: Meta<typeof Button> = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     variant: {
-      options: ["default", "secondary", "ghost", "destructive", "link"],
+      options: ["default", "outline", "secondary", "ghost", "link"],
       control: { type: "select" },
     },
     size: {
@@ -50,11 +50,11 @@ export const Ghost: Story = {
   },
 };
 
-export const Destructive: Story = {
+export const Outline: Story = {
   args: {
-    variant: "destructive",
+    variant: "outline",
     size: "default",
-    children: "Button",
+    children: "Outline Button",
   },
 };
 
