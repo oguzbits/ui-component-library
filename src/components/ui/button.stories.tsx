@@ -1,24 +1,21 @@
-import type { Meta, StoryObj } from "@storybook/nextjs";
-
+import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./button";
 
 const meta: Meta<typeof Button> = {
+  title: "Components/UI/Button",
   component: Button,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     variant: {
-      options: ["default", "outline", "secondary", "ghost", "link"],
-      control: { type: "select" },
+      control: "select",
+      options: ["default", "destructive", "outline", "secondary", "ghost", "link", "brand"],
     },
     size: {
+      control: "select",
       options: ["default", "sm", "lg", "icon"],
-      control: { type: "select" },
     },
   },
 };
@@ -26,49 +23,30 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {
+export const Brand: Story = {
   args: {
-    variant: "default",
-    size: "default",
-    children: "Button",
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-    size: "default",
-    children: "Button",
+    variant: "brand",
+    children: "Brand Primary",
   },
 };
 
 export const Ghost: Story = {
   args: {
     variant: "ghost",
-    size: "default",
-    children: "Button",
+    children: "Ghost Action",
   },
 };
 
 export const Outline: Story = {
   args: {
     variant: "outline",
-    size: "default",
-    children: "Outline Button",
+    children: "Outline Action",
   },
 };
 
-export const Link: Story = {
+export const Small: Story = {
   args: {
-    variant: "link",
-    size: "default",
-    children: "Button",
-  },
-};
-
-export const Icon: Story = {
-  args: {
-    variant: "default",
-    size: "default",
+    size: "sm",
+    children: "Small Action",
   },
 };
