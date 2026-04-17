@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Search } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Kbd } from "@/components/ui/kbd";
 
 const CommandPalette = React.forwardRef<
   HTMLDivElement,
@@ -22,6 +23,9 @@ const CommandPalette = React.forwardRef<
         placeholder="Search for an issue or command..."
         className="bg-transparent border-none outline-none flex-1 text-base text-foreground placeholder:text-text-tertiary font-sans"
       />
+      <div className="flex items-center gap-1">
+        <Kbd>⌘</Kbd><Kbd>K</Kbd>
+      </div>
     </div>
 
     {/* Results list placeholder for visual demonstration */}
@@ -59,12 +63,6 @@ function CommandItem({ label, shortcut }: { label: string; shortcut?: string }) 
   );
 }
 
-function Kbd({ children }: { children: React.ReactNode }) {
-  return (
-    <kbd className="px-1.5 py-0.5 rounded-xs border border-border/50 bg-surface-1 font-mono text-[10px] text-text-muted flex items-center justify-center min-w-[20px]">
-      {children}
-    </kbd>
-  );
-}
+
 
 export { CommandPalette };

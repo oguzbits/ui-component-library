@@ -1,0 +1,34 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Foundations/Overview" />
+
+# Linear UI Library
+### Darkness as a Native Medium
+
+This design system is engineered for high-performance software. It emphasizes clarity, technical precision, and keyboard-driven interaction.
+
+## Core Philosophies
+
+### 1. Luminance Stacking
+In this system, depth is not achieved just through color, but through **luminance**. 
+We use white-transparency steps over a fixed background to create elevation:
+- **Level 1 (0.02)**: The primary surface.
+- **Level 2 (0.04)**: Interaction surfaces (Hover states).
+- **Level 3 (0.05)**: Elevated components (Cards, Inputs).
+- **Level 4 (0.08)**: Borders that simulate a chiseled edge catching light.
+
+### 2. Sub-pixel Density
+We prioritize information density. Our components (like the `Sidebar` or `IssueRow`) use sub-pixel accurate alignment and tightly controlled whitespace to ensure complex data remains readable and focused.
+
+### 3. Progressive Weighting
+We avoid standard bolding. We utilize a signature **510 weight** for UI text. This provides a "medium-technical" feel that is more sophisticated than standard 500 but lighter than 600.
+
+### 4. Keyboard-First Architecture
+Every interactive component is designed with a keyboard shortcut in mind. We use the `<Kbd />` component to reveal shortcuts progressively, training the user to work at the "speed of thought."
+
+---
+
+## Technical Stack
+- **Primitives**: Radix UI (WAI-ARIA compliant)
+- **Engine**: Tailwind CSS 4.2 (CSS Variables)
+- **Typography**: Inter Variable (`cv01`, `ss03`, `tnum`)

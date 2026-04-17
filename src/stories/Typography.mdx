@@ -1,0 +1,42 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+The Linear design system uses **Inter** as its primary typeface. This library utilizes the Variable version of Inter to achieve the precise weight and letter-spacing characteristics that define Linear's high-performance interface.
+
+### The "510" Weight
+A defining characteristic of Linear is the use of a custom weight—**510**. This sits exactly between Medium (500) and SemiBold (600), providing high legibility without the "heaviness" of standard bold fonts.
+
+```css
+/* Linear Signature Weight */
+.font-emphasis {
+  font-weight: 510;
+}
+```
+
+### OpenType Features
+To achieve the technical aesthetics of the Linear app, we enable specific OpenType features:
+- `cv01`: Alternate lowercase "a" (single-story).
+- `ss03`: Alternate digit "3".
+- `tnum`: Tabular figures for alignment in lists/dashboards.
+
+### Type Scale
+Built on a 4px grid system, the type scale is optimized for high-density information display.
+
+| Token | Size | Weight | usage |
+| :--- | :--- | :--- | :--- |
+| `text-xs` | 12px | 400 | Metadata, Captions |
+| `text-sm` | 14px | 400 | Body text, Inputs |
+| `text-base` | 16px | 510 | Headings, Primary Actions |
+| `text-lg` | 18px | 510 | Modal Titles |
+
+<div className="mt-8 p-6 rounded-lg bg-surface-1 border border-border">
+  <p className="text-3xl font-emphasis tracking-tight">
+    The quick brown fox jumps over the lazy dog.
+  </p>
+  <p className="mt-4 text-text-muted">
+    Enabled features: cv01, ss03, tnum. Weight: 510.
+  </p>
+</div>

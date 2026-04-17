@@ -1,0 +1,50 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
+
+<Meta title="Foundations/Luminance" />
+
+# Luminance: Darkness as a Native Medium
+
+In our system, color is not a static hex code. It is an **opacity step** on top of a "Void Black" (`#000000`) canvas. This ensures that every layer of the UI feels "stacked" and meaningful.
+
+## Atmospheric Surfaces
+We use a 3-step luminance model for surfaces:
+
+<ColorPalette>
+  <ColorItem
+    title="Surface 1 (Base)"
+    subtitle="--surface-1 (0.02 White)"
+    colors={{ "Void Layer": "rgba(255, 255, 255, 0.02)" }}
+  />
+  <ColorItem
+    title="Surface 2 (Elevated)"
+    subtitle="--surface-2 (0.04 White)"
+    colors={{ "Raised Layer": "rgba(255, 255, 255, 0.04)" }}
+  />
+  <ColorItem
+    title="Surface 3 (Focus)"
+    subtitle="--surface-3 (0.05 White)"
+    colors={{ "Active Layer": "rgba(255, 255, 255, 0.05)" }}
+  />
+</ColorPalette>
+
+## The "Chiseled" Border
+Borders in this system are never "Grey." They are translucent white dividers that react to whatever background is behind them.
+
+- **Primary Border**: `rgba(255, 255, 255, 0.08)`
+- **Subtle Border**: `rgba(255, 255, 255, 0.05)`
+
+## Brand & Accents
+While the system is strictly dark-mode first, we use a single high-energy brand indigo to guide the eye.
+
+<ColorPalette>
+  <ColorItem
+    title="Brand Primary"
+    subtitle="--brand (Linear Indigo)"
+    colors={{ Indigo: "#5e6ad2" }}
+  />
+  <ColorItem
+    title="Brand Subtle"
+    subtitle="--brand-subtle"
+    colors={{ "Soft Indigo": "rgba(94, 106, 210, 0.15)" }}
+  />
+</ColorPalette>

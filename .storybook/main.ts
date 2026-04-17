@@ -1,5 +1,6 @@
-import type { StorybookConfig } from "@storybook/nextjs-vite";
+import type { StorybookConfig } from "@storybook/react-vite";
 import tailwindcss from "@tailwindcss/vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -11,7 +12,7 @@ const config: StorybookConfig = {
   ],
 
   framework: {
-    name: "@storybook/nextjs-vite",
+    name: "@storybook/react-vite",
     options: {},
   },
 
@@ -21,6 +22,7 @@ const config: StorybookConfig = {
 
   async viteFinal(config) {
     config.plugins?.push(tailwindcss());
+    config.plugins?.push(tsconfigPaths());
     return config;
   },
 };

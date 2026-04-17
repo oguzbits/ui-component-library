@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/nextjs";
+import type { Preview } from "@storybook/react";
 import React from "react";
 import "../src/styles/globals.css";
 import theme from './theme';
