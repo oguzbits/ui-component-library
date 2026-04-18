@@ -10,7 +10,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "tw-config-viewer": "tailwind-config-viewer -o",
-    "export-tw-config": "tailwind-config-viewer export ./output-dir"
+    "export-tw-config": "tailwind-config-viewer export ./output-dir",
+    "chromatic": "npx chromatic --project-token=chpt_87e8f916637ec1a"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.11",
@@ -49,6 +50,7 @@
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
     "autoprefixer": "^10.5.0",
+    "chromatic": "^16.3.0",
     "eslint": "^9.16.0",
     "eslint-config-next": "^16.2.3",
     "eslint-plugin-storybook": "^0.11.2",
